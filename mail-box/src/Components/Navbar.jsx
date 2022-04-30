@@ -1,4 +1,4 @@
-import { styled, Toolbar, Typography,Box,InputBase,Badge  } from '@mui/material';
+import { styled, Toolbar, Typography,Box,InputBase,Badge ,useMediaQuery,useTheme, } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import EmailIcon from '@mui/icons-material/Email';
 import Mail from '@mui/icons-material/Mail';

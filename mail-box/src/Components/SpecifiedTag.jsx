@@ -2,17 +2,27 @@ import { useParams } from "react-router-dom"
 import { useState,useEffect } from "react";
 import {useNavigate }from "react-router-dom"
 import axios from "axios";
+import { useDispatch,useSelector } from "react-redux";
+import { toggleLoading } from "../FetchedData/action";
+import { CircularProgress } from "@mui/material";
 export const SpecifigTag=()=>{
     const {tag}=useParams();
-    // console.log(tag);
     const [data,setData]=useState([]);
+    // console.log(tag);
+    let loading =useSelector((store)=>store.loading);
+    let dispatch=useDispatch();
+    
     useEffect(()=>{
+        dispatch(toggleLoading(true))
         axios.get("https://run.mocky.io/v3/15a3a1c3-1cda-4409-b1b1-2f39f5f25123").then((res)=>{
+            dispatch(toggleLoading(false));
          setData(res.data)
         })
     },[])
     const navigate=useNavigate();
     return(
+        <>
+        {loading?<CircularProgress/>:
         <>
         {data?.filter((e)=>{
             if(tag=="all"){
@@ -30,6 +40,7 @@ export const SpecifigTag=()=>{
                     </div>
                 )
             })}
+            </>}
             </>
     )
 }
