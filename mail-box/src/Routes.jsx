@@ -1,7 +1,7 @@
 
 import { Route,Routes } from "react-router-dom"
 import {  DetailView } from "./Components/DetailView"
-import { InboxPage } from "./Components/inbox"
+import { InboxPage } from "./Components/Inbox"
 import { SearchPage } from "./Components/Search"
 import { SpecifigTag } from "./Components/SpecifiedTag"
 
