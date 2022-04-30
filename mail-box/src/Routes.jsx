@@ -1,7 +1,8 @@
 
 import { Route,Routes } from "react-router-dom"
-import { BodyPage } from "./Components/body"
+import {  DetailView } from "./Components/DetailView"
 import { InboxPage } from "./Components/inbox"
+import { SearchPage } from "./Components/Search"
 import { SpecifigTag } from "./Components/SpecifiedTag"
 
 export const AllRoutes=()=>{
@@ -9,8 +10,8 @@ export const AllRoutes=()=>{
       <Routes>
       <Route path="/" element={<InboxPage/>}></Route>
       <Route path="/tags/:tag" element={<SpecifigTag/>}></Route>
-      <Route path="/body/:id" element={<BodyPage/>}></Route>
-
+      <Route path="/detail-view/:id" element={<DetailView/>}></Route>
+      <Route path="/search/:word" element={<SearchPage/>}></Route>
       </Routes>
 
     )

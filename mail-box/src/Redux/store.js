@@ -1,5 +1,17 @@
-import {createStore} from "redux";
+import {createStore,combineReducers,applyMiddleware} from "redux";
 
 import { fetchDataReducer } from "../FetchedData/reducer";
 
-export const store=createStore(fetchDataReducer);
+const rootReducer=combineReducers(
+    {
+        loading:fetchDataReducer,
+        
+    }
+)
+const thunk=(store)=>(next)=>(action)=>{
+if(typeof action ==="function") return action(store.dispatch)
+next(action)
+}
+
+
+export const store=createStore(rootReducer,applyMiddleware(thunk));
