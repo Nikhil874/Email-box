@@ -23,7 +23,7 @@ export const SpecifigTag=()=>{
             }
             }).map((e)=>{
                 return(
-                    <div key={e.id} style={{display:"flex",gap:"30px",lineHeight:"30px",border:"1px solid teal"}}  onClick={()=>{navigate(`/body/${e.id}`)}}>
+                    <div key={e.id} style={{display:"flex",gap:"30px",lineHeight:"30px", boxShadow: "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px"}}  onClick={()=>{navigate(`/body/${e.id}`)}}>
                     <h3 style={{margin:"0px"}}>user:{e.userId}</h3>
                      <h3 style={{margin:"0px"}}>{e.subject}</h3>
                      {/* <h6>{e.tag}</h6> */}

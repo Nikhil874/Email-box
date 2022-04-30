@@ -21,11 +21,14 @@ export const BodyPage=()=>{
     },[])
     return (
         <>
+        <div style={{textAlign:"left",margingTop:"-30px",border:"1px solid red",
+    boxShadow: "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px",height:"150%"}}>
         <h3>Tag:{data.tag}</h3>
         <h2>From:user{data.userId}</h2>
         <h2>Subject:{data.subject}</h2>
         <h3>Body:</h3>
         <p>{data.body}</p>
+        </div>
         </>
     )
 }
