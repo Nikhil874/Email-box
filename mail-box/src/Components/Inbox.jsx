@@ -13,7 +13,7 @@ export const InboxPage = () => {
   useEffect(() => {
     dispatch(getDataFromAPI());
   }, []);
-  let navigate = useNavigate();
+ 
   return (
     <>
       {loading ? (
