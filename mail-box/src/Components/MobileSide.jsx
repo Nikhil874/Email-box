@@ -4,7 +4,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Mail from "@mui/icons-material/Mail";
 import { useNavigate } from "react-router-dom";
-
+import MenuIcon from "@mui/icons-material/Menu";
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -27,7 +27,7 @@ export default function BasicMenu() {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        <Mail sx={{ color: "white" }} />
+        <MenuIcon sx={{ color: "white" }} />
       </Button>
       <Menu
         id="basic-menu"

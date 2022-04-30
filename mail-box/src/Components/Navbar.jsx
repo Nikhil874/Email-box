@@ -16,6 +16,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import BasicMenu from "./MobileSide";
+
 export const Navbar = () => {
   const StyledToolbar = styled(Toolbar)({
     display: "flex",
