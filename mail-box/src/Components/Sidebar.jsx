@@ -9,7 +9,6 @@ import DraftsIcon from "@mui/icons-material/Drafts";
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery, useTheme } from "@mui/material";
 export const Sidebar = () => {
-  //for navigation to different pages
   let navigate = useNavigate();
   const handleTags = (value) => {
     return navigate(`/tags/${value}`);
@@ -27,10 +26,13 @@ export const Sidebar = () => {
               width: "100%",
               maxWidth: 300,
               bgcolor: "background.paper",
-              border: "1px solid black",
             }}
           >
-            <List component="nav" aria-label="main mailbox folders">
+            <List
+              className="removePad"
+              component="nav"
+              aria-label="main mailbox folders"
+            >
               <ListItemButton
                 sx={{ backgroundColor: "#EDE6DB" }}
                 onClick={() => {

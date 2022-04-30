@@ -9,11 +9,24 @@ export const API_DATA="API_DATA";
 
 export const toggleLoading=(payload)=>({type:LOADING_STATE,payload});
 export const setAPIData=(payload)=>({type:API_DATA,payload});
-export const getDataFromAPI=()=>(dispatch)=>{
+
+
+export const getDataFromAPI=(payload="",type="")=>(dispatch)=>{
     dispatch(toggleLoading(true));
     axios.get(URL).then(({data})=>{
-        console.log("my API response",data);
+
+        // console.log("my API response",data);
+      
+        if(type!=""){
+           data=data.filter((e)=>{
+            if(type=="search"&&e.subject.includes(payload)){
+                 return e;
+                }
+              })
+        }
+       
         dispatch(toggleLoading(false));
+        // console.log("filterdata",data);
         dispatch(setAPIData(data))
      }).catch((e)=>{
         dispatch(toggleLoading(false)); 

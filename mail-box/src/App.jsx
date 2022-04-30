@@ -4,20 +4,26 @@ import './App.css'
 import { Sidebar } from './Components/Sidebar'
 import { Navbar } from './Components/Navbar'
 import { AllRoutes } from './Routes'
-import { Grid } from '@mui/material'
+import { Grid,useMediaQuery,
+  useTheme, } from '@mui/material'
+import BasicMenu from './Components/MobileSide'
 function App() {
-  const [count, setCount] = useState(0)
-
+  
+  const theme = useTheme(null);
+  const isMatch = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <div className="App">
+      
      <Grid container>
        <Grid xs={12}>
        <Navbar/>
+      
        </Grid>
-      <Grid xs={2} sx={{border:"1px solid red"}}>
+       
+      <Grid xs={isMatch?0:2}>
       <Sidebar/>
       </Grid>
-      <Grid xs={10}>
+      <Grid xs={isMatch?12:10}>
       <AllRoutes/>
       </Grid>
      

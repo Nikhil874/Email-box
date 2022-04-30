@@ -13,8 +13,9 @@ import EmailIcon from "@mui/icons-material/Email";
 import Mail from "@mui/icons-material/Mail";
 import Notifications from "@mui/icons-material/Notifications";
 import SearchIcon from "@mui/icons-material/Search";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import BasicMenu from "./MobileSide";
 export const Navbar = () => {
   const StyledToolbar = styled(Toolbar)({
     display: "flex",
@@ -33,13 +34,20 @@ export const Navbar = () => {
   }));
   const theme = useTheme(null);
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
-  let [keyword, setKeyword] = useState("");
+
+  const keyword = useRef("");
   const navigate = useNavigate();
+
+  const handleKeyword = (e) => {
+    keyword.current = e.target.value;
+    console.log(keyword.current);
+  };
+  console.log(keyword);
   return (
     <AppBar sx={{ position: "static", backgroundColor: "#1A3C40" }}>
       <StyledToolbar>
         {isMatch ? (
-          <Mail />
+          <BasicMenu />
         ) : (
           <Typography
             variant="h6"
@@ -52,9 +60,10 @@ export const Navbar = () => {
         {/* <EmailIcon sx={{display:{xs:"block",sm:"none"}}}/> */}
         <SearchBox>
           <InputBase
+            type="text"
             placeholder="search"
             sx={{ border: "1px solid transparent" }}
-            onChange={(e) => setKeyword(e.target.value)}
+            onChange={(e) => handleKeyword(e)}
           />
           <SearchIcon
             sx={{
@@ -64,7 +73,7 @@ export const Navbar = () => {
               marginRight: "-10px",
             }}
             onClick={() => {
-              navigate(`/search/${keyword}`);
+              navigate(`/search/${keyword.current}`);
             }}
           />
         </SearchBox>
