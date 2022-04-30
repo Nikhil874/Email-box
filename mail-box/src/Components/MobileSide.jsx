@@ -15,6 +15,11 @@ export default function BasicMenu() {
   const handleClose = (val) => {
     console.log(val);
     setAnchorEl(null);
+    if(val=="inbox"){
+      navigate("/");
+    }else{
+      navigate(`/tags/${val}`);
+    }
     navigate(`/tags/${val}`);
   };
 
