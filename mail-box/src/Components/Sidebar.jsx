@@ -28,6 +28,7 @@ export const Sidebar=()=>{
         </ListItemButton>
         <ListItemButton
           sx={{backgroundColor:"#EDE6DB"}}
+          onClick={()=>navigate("/")}
         >
           <ListItemIcon>
             <InboxIcon />
