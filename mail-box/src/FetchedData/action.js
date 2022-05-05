@@ -15,20 +15,33 @@ export const getDataFromAPI=(payload="",type="")=>(dispatch)=>{
     dispatch(toggleLoading(true));
     axios.get(URL).then(({data})=>{
 
-        // console.log("my API response",data);
       
         if(type!=""){
-           data=data.filter((e)=>{
-            if(type=="search"&&e.subject.includes(payload)){
-                 return e;
-                }
-              })
+           if(type=="search"){
+            data=data.filter((e)=>{
+               if(type=="search"&&e.subject.includes(payload)){
+                    return e;
+                   }
+                 })
+           }else if(type=="tag"){
+              if(payload=="all"){
+                 data
+              }else{
+               data=data.filter((e) => {
+                  if (e.tag == payload) {
+                    return true;
+                  }
+                })
+              }
+           
+           }
+           
         }
        
         dispatch(toggleLoading(false));
-        // console.log("filterdata",data);
+        
         dispatch(setAPIData(data))
      }).catch((e)=>{
         dispatch(toggleLoading(false)); 
-        console.log("thunx error")})
+        console.log("thunk error")})
 }

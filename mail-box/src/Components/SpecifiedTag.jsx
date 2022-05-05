@@ -13,24 +13,17 @@ export const SpecifigTag = () => {
   let dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getDataFromAPI());
-  }, []);
-  const navigate = useNavigate();
+    dispatch(getDataFromAPI(tag,"tag"));
+   
+  }, [tag]);
+  
   return (
     <>
       {loading ? (
         <CircularProgress />
       ) : (
         <>
-          {data
-            ?.filter((e) => {
-              if (tag == "all") {
-                return true;
-              } else if (e.tag == tag) {
-                return true;
-              }
-            })
-            .map((e) => (
+          {data.map((e) => (
               <ListView key={e.id} data={e} />
             ))}
         </>

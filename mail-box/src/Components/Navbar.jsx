@@ -43,7 +43,7 @@ export const Navbar = () => {
     keyword.current = e.target.value;
     console.log(keyword.current);
   };
-  console.log(keyword);
+  
   return (
     <AppBar sx={{ position: "static", backgroundColor: "#1A3C40" }}>
       <StyledToolbar>

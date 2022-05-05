@@ -11,8 +11,9 @@ export const InboxPage = () => {
 
   let dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getDataFromAPI());
-  }, []);
+    console.log("diaptch dependency")
+    dispatch(getDataFromAPI("inbox","tag"));
+  },[dispatch]); //we can use but we does effect because it is not variable
  
   return (
     <>
@@ -20,13 +21,7 @@ export const InboxPage = () => {
         <CircularProgress />
       ) : (
         <>
-          {data
-            ?.filter((e) => {
-              if (e.tag == "inbox") {
-                return true;
-              }
-            })
-            .map((e) => (
+          {data.map((e) => (
               <ListView key={e.id} data={e} />
             ))}
         </>

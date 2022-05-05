@@ -2,7 +2,7 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import Mail from "@mui/icons-material/Mail";
+
 import { useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 export default function BasicMenu() {
@@ -13,7 +13,7 @@ export default function BasicMenu() {
   };
   const navigate = useNavigate();
   const handleClose = (val) => {
-    console.log(val);
+  
     setAnchorEl(null);
     if(val=="inbox"){
       navigate("/");

@@ -6,7 +6,7 @@ import { Navbar } from './Components/Navbar'
 import { AllRoutes } from './Routes'
 import { Grid,useMediaQuery,
   useTheme, } from '@mui/material'
-import BasicMenu from './Components/MobileSide'
+
 function App() {
   
   const theme = useTheme(null);
