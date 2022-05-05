@@ -16,4 +16,4 @@ const rootReducer=combineReducers(
 // }
 
 
-export const store=createStore(rootReducer,applyMiddleware(thunk));  //order is very important in applymiddleware
+export const store=createStore(rootReducer,applyMiddleware(thunk));  
