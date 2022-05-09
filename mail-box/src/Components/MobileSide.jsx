@@ -6,14 +6,15 @@ import MenuItem from "@mui/material/MenuItem";
 import { useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 export default function BasicMenu() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl,setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const navigate = useNavigate();
   const handleClose = (val) => {
-  
+    //restricting the close function to sidebar
+  if(typeof  val=="string" ){
     setAnchorEl(null);
     if(val=="inbox"){
       navigate("/");
@@ -21,6 +22,8 @@ export default function BasicMenu() {
       navigate(`/tags/${val}`);
     }
     navigate(`/tags/${val}`);
+  }
+   
   };
 
   return (
